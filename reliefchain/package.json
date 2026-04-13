@@ -16,7 +16,7 @@
     "test": "npm test --workspace=contracts && npm test --workspace=backend",
     "lint": "npm run lint --workspaces",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,sol,md}\"",
-    "prepare": "husky install"
+    "prepare": "node -e \"if(!process.env.CI) require('child_process').execSync('husky install', {stdio:'inherit'})\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2",

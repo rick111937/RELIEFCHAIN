@@ -4,6 +4,7 @@
   "homepage": "https://YOUR_GITHUB_USERNAME.github.io/ReliefChain",
   "scripts": {
     "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src/**/*.{js,jsx}",
     "predeploy": "npm run build",
