@@ -1,0 +1,11 @@
+node_modules/
+.env
+*.local
+artifacts/
+cache/
+typechain-types/
+coverage/
+dist/
+build/
+.DS_Store
+.husky/_/
