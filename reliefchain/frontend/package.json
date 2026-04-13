@@ -1,39 +1,46 @@
 {
-  "name": "reliefchain-monorepo",
+  "name": "reliefchain-frontend",
   "version": "1.0.0",
-  "private": true,
-  "workspaces": [
-    "contracts",
-    "backend",
-    "frontend"
-  ],
+  "homepage": "https://YOUR_GITHUB_USERNAME.github.io/ReliefChain",
   "scripts": {
-    "build": "npm run build --workspace=frontend",
-    "dev": "npm run dev:backend & npm run dev:frontend",
-    "dev:backend": "npm run dev --workspace=backend",
-    "dev:frontend": "npm start --workspace=frontend",
-    "chain": "npm run node --workspace=contracts",
-    "deploy:local": "npm run deploy:local --workspace=contracts",
-    "test": "npm test --workspace=contracts && npm test --workspace=backend",
-    "lint": "npm run lint --workspaces",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,sol,md}\"",
-    "prepare": "node -e \"if(!process.env.VERCEL && !process.env.CI) require('child_process').execSync('husky install', {stdio:'inherit'})\""
+    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint src/**/*.{js,jsx}",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "@rainbow-me/rainbowkit": "^2.2.10",
+    "@react-oauth/google": "^0.13.4",
+    "@tanstack/react-query": "^5.24.1",
+    "axios": "^1.6.7",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.344.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
+    "react-scripts": "5.0.1",
+    "tailwind-merge": "^2.2.1",
+    "viem": "^2.7.12",
+    "wagmi": "^2.5.7"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.2.5",
-    "prettier-plugin-solidity": "^1.3.1"
+    "autoprefixer": "^10.4.17",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
-    "*.sol": [
-      "prettier --write",
-      "solhint"
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }
