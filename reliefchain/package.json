@@ -8,6 +8,7 @@
     "frontend"
   ],
   "scripts": {
+    "build": "npm run build --workspace=frontend",
     "dev": "npm run dev:backend & npm run dev:frontend",
     "dev:backend": "npm run dev --workspace=backend",
     "dev:frontend": "npm start --workspace=frontend",
@@ -16,7 +17,7 @@
     "test": "npm test --workspace=contracts && npm test --workspace=backend",
     "lint": "npm run lint --workspaces",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,sol,md}\"",
-    "prepare": "node -e \"if(!process.env.CI) require('child_process').execSync('husky install', {stdio:'inherit'})\""
+    "prepare": "node -e \"if(!process.env.VERCEL && !process.env.CI) require('child_process').execSync('husky install', {stdio:'inherit'})\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
